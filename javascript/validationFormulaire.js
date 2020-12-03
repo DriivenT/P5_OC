@@ -78,6 +78,8 @@ function checkInput(){
     // Si un des champs n'est pas conforme => message d'alert avec la raison
     if (formIsValid == true && localStorage.length > 0){
         console.log("Le formulaire est validé !");
+
+        // Création de l'objet contact
         const contact = {
             firstName: prenom,
             lastName: nom,
@@ -86,11 +88,13 @@ function checkInput(){
             email: email,
         };
 
+        // Création de l'objet à envoyer contenant l'objet contact et le tableau products
         let envoiObjet = {
             contact: contact,
             products: JSON.parse(localStorage.getItem("products")),
         };
 
+        // Initialisation des options pour l'envoi des données à l'API
         const options = {
             method: 'POST',
             body: JSON.stringify(envoiObjet),
@@ -108,6 +112,8 @@ function checkInput(){
                 console.log(data);
                 resultat = data;
                 idCommande = localStorage.getItem("idCommande");
+
+                // Envoi des éléments envoyés par l'API dans le localStorage
                 if(idCommande == "null"){
                     localStorage.setItem("idCommande", JSON.stringify(resultat));
                 }
@@ -115,7 +121,13 @@ function checkInput(){
                     localStorage.removeItem("idCommande");
                     localStorage.setItem("idCommande", JSON.stringify(resultat));
                 }
-                alert("La commande a été validée.");
+
+                // Redirection vers la page de confirmation
+                window.location = "confirmation.html";
+
+                // Vidage du panier et du tableau products
+                localStorage.removeItem("panier");
+                localStorage.removeItem("products");
             })
             .catch(function (error) {
                 console.log(error);

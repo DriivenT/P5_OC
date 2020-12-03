@@ -40,23 +40,25 @@ fetch("http://localhost:3000/api/teddies/" + id)
         let nomCouleur;
         let optionSelect = 0;
 
-        // for (let i of resultat.colors){
-        for(let i = 0; i <= resultat.colors.length-1; i++){
-            nomCouleur = resultat.colors[i];
+        // Affichage des couleurs disponibles dans les choix possibles
+        for(const couleur of resultat.colors){
+            nomCouleur = couleur;
             let option = document.createElement("option");
             option.setAttribute("value", nomCouleur);
             option.innerHTML = nomCouleur;
             blockSelect.appendChild(option);
         }
 
+        // Récupération du choix de l'utilisateur à chaque changement
         blockSelect.addEventListener('change', function(){
             optionSelect = blockSelect.selectedIndex;
         });
 
+        // Ajout du produit dans le panier
         bouton.addEventListener('click', async function(){
             if (optionSelect != 0){
                 alert("L'article a été ajouté au panier.");
-                if(localStorage.length == 0){
+                if(localStorage.getItem("panier") == null){
                     let panier = [[],[]];
                     panier[0].push(id)
                     panier[1].push(blockSelect.options[optionSelect].value);

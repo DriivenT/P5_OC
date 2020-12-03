@@ -9,7 +9,7 @@ if(commande == null){
 }
 else{
     msg = `<p class="description">Merci d'avoir commandé sur Orinoco,<br/>
-            Vous avez payé ${new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(prixTotal / 100)},<br/>
+            Vous avez payé ${new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(prixTotal / 100)}.<br/>
             Voici votre identifiant de commande: <br/>${commande.orderId}<br/>
             Nous espérons vous revoir bientôt !
         </p>`
