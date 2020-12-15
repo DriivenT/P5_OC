@@ -21,7 +21,7 @@ fetch("http://localhost:3000/api/teddies")
             let cardButton = document.createElement("a");
 
             // Attribution des attributs
-            article.setAttribute("class", "card m-4 col-5")
+            article.setAttribute("class", "card m-4 col-12 col-lg-5 col")
             cardImg.setAttribute("src", elem.imageUrl);
             cardImg.setAttribute("class", "card-img-top")
             cardImg.setAttribute("alt", "Ours en peluche " + [i + 1] + " nommé " + elem.name);

@@ -48,9 +48,8 @@ else{
             });
     }
 
-    // Bouton supprimer
+    //Tentative de bouton supprimer, échec.
     let btnSuppr = document.querySelectorAll(".boutonRemove");
-    console.log(btnSuppr);
     for (const bouton of btnSuppr){
         bouton.addEventListener('click', function (){
             alert("test");
