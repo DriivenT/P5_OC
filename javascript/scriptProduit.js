@@ -59,15 +59,23 @@ fetch("http://localhost:3000/api/teddies/" + id)
             if (optionSelect != 0){
                 alert("L'article a été ajouté au panier.");
                 if(localStorage.getItem("panier") == null){
-                    let panier = [[],[]];
-                    panier[0].push(id)
-                    panier[1].push(blockSelect.options[optionSelect].value);
+
+                    let panier = [];
+
+                    panier.push({
+                        id: id,
+                        couleur: blockSelect.options[optionSelect].value
+                    });
                     localStorage.setItem("panier", JSON.stringify(panier));
                 }
                 else{
                     panier = JSON.parse(localStorage.getItem("panier"));
-                    panier[0].push(id);
-                    panier[1].push(blockSelect.options[optionSelect].value);
+
+                    panier.push({
+                        id: id,
+                        couleur: blockSelect.options[optionSelect].value
+                    });
+
                     localStorage.setItem("panier", JSON.stringify(panier));
                 }
             }

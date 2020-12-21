@@ -14,8 +14,8 @@ if (localStorage.getItem("panier") == "[[],[]]" || localStorage.length == 0 || l
     boitePrixTotal.innerHTML = "0€";
 }
 else{
-    for(let i = 0; i <= panier[0].length-1; i++){
-        fetch("http://localhost:3000/api/teddies/" + panier[0][i])
+    for(const element of panier){
+        fetch("http://localhost:3000/api/teddies/" + element.id)
             .then(function (response) {
                 console.log(response);
                 return response.json();
@@ -27,9 +27,9 @@ else{
                 // Création et affichage de la ligne de tableau avec les paramètres du produit ajouté.
                 ligneArticle = `<tr>
                                     <th>${resultat.name}</th>
-                                    <th>${panier[1][i]}</th>
+                                    <th>${element.couleur}</th>
                                     <th>${new Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(resultat.price / 100)}</th>
-                                    <th><i data-id="${i}" class="boutonRemove fas fa-times-circle text-primary"></i></th>
+                                    <th><i class="boutonRemove fas fa-times-circle text-primary"></i></th>
                                 </tr>`;
                 corpsTableau.innerHTML = corpsTableau.innerHTML + ligneArticle;
 
@@ -49,7 +49,7 @@ else{
     }
 
     //Tentative de bouton supprimer, échec.
-    let btnSuppr = document.querySelectorAll(".boutonRemove");
+    /* let btnSuppr = document.querySelectorAll(".boutonRemove");
     for (const bouton of btnSuppr){
         bouton.addEventListener('click', function (){
             alert("test");
@@ -61,5 +61,5 @@ else{
             //Mise à jour de la page pour affichage de la suppression au client
             window.location.reload();
         });
-    }
+    }*/
 }
