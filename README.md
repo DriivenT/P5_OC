@@ -2,6 +2,13 @@
 
 Voici le serveur backend pour le Projet 5 du parcours "Développeur Web Junior" d'Openclassrooms
 
+### Compétences ###
+
+- Interagir avec un web service avec JavaScript  
+- Valider des données issues de sources externes  
+- Créer un plan de test pour une application  
+- Gérer des événements JavaScript  
+
 ### Prerequisites ###
 
 Vous aurez besoin d'avoir Node et `npm` installé localement sur votre machine.
