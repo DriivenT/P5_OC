@@ -4,7 +4,7 @@ Voici le serveur backend pour le Projet 5 du parcours "Développeur Web Junior" 
 
 ### Prerequisites ###
 
-Vous aurez besoin d'avoir Node and "npm" installé localement sur votre machine.
+Vous aurez besoin d'avoir Node et `npm` installé localement sur votre machine.
 
 ### Installation ###
 
